@@ -1,0 +1,36 @@
+<div class="card mb-4 col-md-12" *ngFor="let producto of productos">
+    <div class="row no-gutters">
+        <div class="col-md-6">
+            <img [src]="producto.imagenURL" class="card-img" [alt]="producto.titulo">
+        </div>
+        <div class="col-md-6 p-5">
+            <div class="card-body">
+                <h5 class="card-title">{{producto.titulo}}</h5>
+                <p class="card-text">{{producto.descripcion}}</p>
+                <span class="border-0"></span>
+                <p class="card-text text-danger">${{producto.precio}}</p>
+
+                <div class="input-group col-md-6 ">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Cantidad</label>
+                    </div>
+                    <select class="custom-select" (change)="actualizarCantidad($event.target.value, producto)">
+                      <option selected>{{producto.cantidad}}</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <button (click)="eliminarArticuloCarrito(producto)" type="button" class="btn bg-danger text-white mt-2 col-md-12">
+                        Eliminar articulo
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="alert alert-info bg-primary text-white" role="alert" *ngIf="mostrarMensaje">
+    {{mensaje}}
+</div> -->

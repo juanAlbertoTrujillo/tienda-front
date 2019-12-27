@@ -1,0 +1,21 @@
+<div class="alert alert-info bg-primary text-white" role="alert" *ngIf="mostrarMensaje">
+    {{mensaje}}
+</div>
+<div class="card mb-4 col-md-4" style="display: inline-block; align-items: center;" *ngFor="let producto of productos">
+    <div class="row no-gutters">
+        <div class="col-md-12">
+            <img [src]="producto.imagenURL" class="card-img" [alt]="producto.titulo">
+        </div>
+        <div class="col-md-12">
+            <div class="card-body">
+                <h5 class="card-title">{{producto.titulo}}</h5>
+                <p class="card-text">{{producto.descripcion}}</p>
+                <p class="card-text text-danger">${{producto.precio}}</p>
+                <button (click)="agregarArticuloCarrito(producto)" type="button" class="btn btn-primary text-white">
+                Agregar al carrito
+                </button>
+                <!-- <a class="btn btn-primary text-white" (click)="agregarArticuloCarrito{{producto.titulo}})">Agregar al carrito</a> -->
+            </div>
+        </div>
+    </div>
+</div>
